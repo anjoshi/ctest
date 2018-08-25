@@ -1,0 +1,29 @@
+{
+  "name": "api_srv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjoshi/ctest.git"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "cookie-parser": "1.4.3",
+    "express": "4.16.3",
+    "http": "0.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "1.9.0",
+    "response-time": "2.3.2"
+  },
+  "author": "Ani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anjoshi/ctest/issues"
+  },
+  "homepage": "https://github.com/anjoshi/ctest#readme"
+}
