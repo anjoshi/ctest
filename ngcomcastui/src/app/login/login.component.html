@@ -1,0 +1,24 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="container-fluid comcast-container login-page-container">
+    <!--<app-alert></app-alert>-->
+    <div class=" icon-container">
+      <section id="image-section" class="image-section">
+        <img src="../assets/Stringify-logo.svg" alt="Stringify" class="logo">
+      </section>
+    </div>
+    <div class="login-container">
+      <section class="center">
+        <span>Please Login</span>
+      </section>
+      <section>
+        <input type="text" name="username" autocomplete="off" placeholder="UserId" ngModel>
+      </section>
+      <section>
+        <input type="password" name="password" autocomplete="off" placeholder="Password" ngModel>
+      </section>
+      <div class="wrapper">
+        <button type="button" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</form>

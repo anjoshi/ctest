@@ -1,0 +1,61 @@
+@import "../app.component";
+
+.login-page-container {
+  width: 20%;
+  min-width: 400px;
+  max-width: 500px;
+  background-color: white;
+  min-height: 350px;
+  max-height: 550px;
+  margin-top: 7%;
+}
+.icon-container {
+  position: relative;
+  margin: 0;
+  height: 50px;
+  margin-top: 25px;
+}
+.login-container {
+  position: relative;
+  min-height: 250px;
+  max-height: 450px;
+  margin-top: 10%;
+}
+.logo {
+  margin-left: 35%;
+  margin-top: 5%;
+}
+section input[type=text], input[type=password] {
+  text-align:center;
+  display: block;
+  margin: 0 auto 1em auto;
+  width: 90%;
+  padding: 5px;
+}
+.center {
+  text-align: center;
+  margin: 5%;
+}
+.btn-div {
+  height: 50px;
+}
+.wrapper {
+  width: 100%;
+  margin-top: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+//iPad in portrait & landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+  .submit-btn {
+    margin-right: 20%;
+  }
+}
+
+//iPhone 6 Plus in portrait & landscape
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+  margin-right: 20%;
+}

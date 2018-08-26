@@ -1,0 +1,35 @@
+
+html, body {
+  height:100vh;
+}
+.comcast-container {
+  border-color: #dfdfdf;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 1%;
+  background: #ffffff;
+  padding: 0;
+}
+.heading-section {
+  overflow: auto;
+  width: 70%;
+  min-height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.heading {
+  max-width: 20%;
+  min-height: 40px;
+  margin: 5px;
+}
+.add-button {
+  float: right;
+  margin-top: -40px;
+}
+input {
+  height: 44px;
+  z-index: 1;
+}
+input:focus {
+  background-color: #ffffb3;
+}
