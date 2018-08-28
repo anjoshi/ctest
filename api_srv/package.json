@@ -12,11 +12,13 @@
     "url": "git+https://github.com/anjoshi/ctest.git"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "1.18.3",
     "cookie-parser": "1.4.3",
     "express": "4.16.3",
     "http": "0.0.0",
     "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
     "morgan": "1.9.0",
     "response-time": "2.3.2"
   },
