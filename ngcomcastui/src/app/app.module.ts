@@ -5,12 +5,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import 'rxjs/add/operator/do';
 
+import { HttpModule } from '@angular/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from "./services/login.service";
 import { Routing } from "./app.routing";
+import { SeedService } from "./services/seed.service";
+import { InterceptorService } from "./services/interceptor.service";
 
 @NgModule({
   declarations: [
@@ -24,11 +29,15 @@ import { Routing } from "./app.routing";
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    LoginService
+    LoginService,
+    SeedService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],
   bootstrap: [AppComponent]
 })

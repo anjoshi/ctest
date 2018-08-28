@@ -1,3 +1,33 @@
-<p>
-  home works!
-</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="container-fluid comcast-container login-page-container">
+    <div class=" icon-container">
+      <section id="image-section" class="image-section">
+        <img src="../assets/nest.png" alt="Thermostat" class="image-center">
+      </section>
+    </div>
+    <div class="control-container parent ">
+      <div style="margin-left: 15%">
+        <div id="mintemp" class="child circle greencircle">
+          <span>Cool</span>
+        </div>
+      </div>
+      <div>
+        <div id="tempcontrol" class="child temparature-child">
+          <label class="control">
+            <input type="range" name="temp" min="34" max="80" step="1" value="50">
+          </label>
+        </div>
+      </div>
+      <div>
+        <div id="maxtemp" class="child circle redcircle">
+          <span>Hot</span>
+        </div>
+      </div>
+    </div>
+    <div class="homewrapper">
+      <div id="finaltemp" class="child circle blackcircle">
+        <span>Se</span>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService} from "../services/login.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
+
+  onSubmit(formData) {
+    this.loginService.varifyCredential(formData.username, formData.password)
+      .then((data) => {
+        this.router.navigate(['home']);
+      })
+      .catch((err) => {
+        //this.errorAlert('Login Failure. Incorrect Password.');
+      })
+  }
+
+
 
 }
