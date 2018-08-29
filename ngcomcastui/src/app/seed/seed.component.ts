@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SeedService } from "../services/seed.service";
+import { AlertsService } from "../services/alerts.service";
 
 @Component({
   selector: 'app-seed',
@@ -29,11 +30,12 @@ export class SeedComponent implements OnInit {
       console.log('success in saving');
     })
     .catch(e => {
-      console.error('service error');
+      console.error('Service error, please see console log' + e);
+      this.alertservice.error('Service error, please see console log', true);
     })
   }
 
-  constructor(private seedService: SeedService) {
+  constructor(private seedService: SeedService, private alertservice: AlertsService) {
     seedService.getNestDetails()
     .then(obj => {
       this.seed.id = obj.seedId;
@@ -43,7 +45,8 @@ export class SeedComponent implements OnInit {
       }
     })
     .catch(e => {
-      console.error('Service error ' + e);
+      console.error('Service error, please see console log' + e);
+      this.alertservice.error('Service error, please see console log', true);
     });
   }
 

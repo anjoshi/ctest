@@ -15,12 +15,15 @@ import { LoginService } from "./services/login.service";
 import { Routing } from "./app.routing";
 import { SeedService } from "./services/seed.service";
 import { SeedComponent } from './seed/seed.component';
+import { AlertComponent } from './alert/alert.component';
+import { AlertsService } from "./services/alerts.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SeedComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { SeedComponent } from './seed/seed.component';
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     LoginService,
-    SeedService
+    SeedService,
+    AlertsService
   ],
   bootstrap: [AppComponent]
 })

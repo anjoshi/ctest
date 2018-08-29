@@ -33,7 +33,7 @@ app.post('/login', (req, res) => {
     })
     .catch(err => {
       res.setHeader('Content-Type', 'application/json');
-      res.status(501).end(JSON.stringify({"Error": err}));
+      res.status(401).end(err.message);
     })
   }
 });
