@@ -22,12 +22,17 @@ export class SeedService {
         .then(response => response.json())
         .then(response => {
           const { seeds } = response,
-            seed = seeds.filter(e => {
+            seedArr = seeds.filter(e => {
               return e.myHubRosetta === "w1qUpEDz_1";
             });
-          let returnObj = {};
-          returnObj.seedId = seed[0].seedId;
-          returnObj.attribSet = seed[0].attribSet;
+          let returnObj = {
+            "seedId": null,
+            "attribSet": []
+            },
+            seed = seedArr[0],
+            { seedId, attribSet } = seed;
+          returnObj.seedId = seedId;
+          returnObj.attribSet = attribSet;
           resolve(returnObj);
         })
         .catch((err: HttpErrorResponse) => {
