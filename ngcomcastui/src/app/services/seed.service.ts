@@ -2,27 +2,33 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { HttpErrorResponse } from "@angular/common/http";
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class SeedService {
-
   constructor(private http: Http ) {
   }
-
   public getNestDetails() : Promise<any> {
     return new Promise<any>((resolve, reject) => {
       const reqHeaders = new Headers();
+      const idToken = localStorage.getItem("token"),
+        bearer = 'Bearer ' + idToken;
+      reqHeaders.append('Authorization', bearer);
       reqHeaders.append('Content-Type', 'application/json');
       const options = new RequestOptions({ headers: reqHeaders });
-      const rootUrl = "http://localhost:8550/nestdata";
+      const rootUrl = "https://api.stringify.com/v2/seeds";
       this.http.get(rootUrl, options)
         .toPromise()
         .then(response => response.json())
         .then(response => {
-          console.log('got the response');
-          resolve(response);
+          const { seeds } = response,
+            seed = seeds.filter(e => {
+              return e.myHubRosetta === "w1qUpEDz_1";
+            });
+          let returnObj = {};
+          returnObj.seedId = seed[0].seedId;
+          returnObj.attribSet = seed[0].attribSet;
+          resolve(returnObj);
         })
         .catch((err: HttpErrorResponse) => {
           console.log('GOT Error on service call ' + JSON.stringify(err));
@@ -30,15 +36,16 @@ export class SeedService {
         })
     });
   }
-
   public setNestData(seedId, attribSet) : Promise<any> {
     return new Promise((resolve, reject) => {
       const reqHeaders = new Headers();
+      const idToken = localStorage.getItem("token"),
+        bearer = 'Bearer ' + idToken;
+      reqHeaders.append('Authorization', bearer);
       reqHeaders.append('Content-Type', 'application/json');
       const options = new RequestOptions({ headers: reqHeaders });
-      const rootUrl = "http://localhost:8550/setnestdata";
+      const rootUrl = "https://api.stringify.com/v2/" + seedId + '/controls';
       const userData = {
-        seedId,
         attribSet
       };
       this.http.put(rootUrl, userData, options)
@@ -54,6 +61,4 @@ export class SeedService {
         })
     });
   }
-
-
 }

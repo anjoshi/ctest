@@ -1,0 +1,31 @@
+<div class="container-fluid comcast-container login-page-container">
+  <div class=" icon-container">
+    <section id="image-section" class="wrapper">
+      <img src="../assets/nest_icon.png" alt="Thermostat">
+    </section>
+  </div>
+  <div class="control-container parent ">
+    <div style="margin-left: 15%">
+      <div id="mintemp" class="child circle greencircle">
+        <span>Cool</span>
+      </div>
+    </div>
+    <div>
+      <div id="tempcontrol" class="child temparature-child">
+        <label class="control">
+          <input type="range" min="{{ minTemp }}" max="{{ maxTemp }}" [(ngModel)]="value" (mousedown)="press()" (mouseup)="release()"/>
+        </label>
+      </div>
+    </div>
+    <div>
+      <div id="maxtemp" class="child circle redcircle">
+        <span>Hot</span>
+      </div>
+    </div>
+  </div>
+  <div class="homewrapper">
+    <div id="finaltemp" class="child circle blackcircle">
+      <span>{{ value }}</span>
+    </div>
+  </div>
+</div>
